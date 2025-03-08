@@ -2,7 +2,6 @@ name = "notion-proxy"
 main = "index.js"
 compatibility_date = "2023-08-15"
 
-[triggers]
 routes = [
   { pattern = "outsource.gataglobal.com.vn/*", zone_name = "gataglobal.com.vn" }
 ]
