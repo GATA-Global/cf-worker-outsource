@@ -1,5 +1,5 @@
 For deploying the Worker on Cloudflare, you have two main options:
-Option 1: Direct deployment via Cloudflare Dashboard
+### Option 1: Direct deployment via Cloudflare Dashboard
 
 Log in to your Cloudflare dashboard
 Navigate to "Workers & Pages"
@@ -15,7 +15,8 @@ Make sure it's set to "Production"
 
 
 
-Option 2: Using Wrangler CLI (more advanced)
+### Option 2: Using Wrangler CLI (more advanced)
+
 If you prefer using the command line:
 
 Install Wrangler: npm install -g wrangler
@@ -42,3 +43,21 @@ Set up an A record for the subdomain that points to 192.0.2.1 (or any placeholde
 Make sure the DNS record has the orange cloud enabled (Proxied status)
 
 There are no specific build commands needed for this Worker since it's a simple JavaScript file without dependencies. Cloudflare handles the execution environment for you.
+
+## Add CName
+Add a CNAME Record for the Subdomain
+Type: CNAME
+
+Name: outsource
+
+Target: You typically have two options:
+
+Option A: Point it to workers.dev if instructed by Cloudflare (i.e., the record should be “outsource.gataglobal.com.vn CNAME workers.dev”).
+Option B: More commonly, point it to your Workers subdomain, which in your case is notion-proxy.gata-global-head-hunting.workers.dev.
+For example:
+
+Name: outsource
+Target: notion-proxy.gata-global-head-hunting.workers.dev
+TTL: Auto
+
+Proxy status: Make sure it’s set to Proxied (orange cloud) unless you have a specific reason not to proxy.
